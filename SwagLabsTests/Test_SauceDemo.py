@@ -174,7 +174,7 @@ class Test_DemoClass:
         self.driver.execute_script("arguments[0].scrollIntoView();", selected_product)
         sleep(5)
 
-        addToCartButton = selected_product.find_element(By.XPATH, "//*[@id='add-to-cart-sauce-labs-backpack']")
+        addToCartButton = selected_product.find_element(By.CSS_SELECTOR, ".inventory_item_description.pricebar button")
         addToCartButton.click()
         sleep(5)
 
