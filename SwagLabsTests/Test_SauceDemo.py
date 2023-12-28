@@ -173,9 +173,11 @@ class Test_DemoClass:
         selected_product = listOfProduct[random_index]
         self.driver.execute_script("arguments[0].scrollIntoView();", selected_product)
         sleep(5)
+        inventory_item_description = selected_product.find_element(By.CLASS_NAME, "inventory_item_description")
+        price_bar = inventory_item_description.find_element(By.CLASS_NAME, "pricebar")
 
-        addToCartButton = selected_product.find_element(By.XPATH, "//*[@id='add-to-cart-sauce-labs-backpack']")
-        addToCartButton.click()
+        add_to_cart_button = price_bar.find_element(By.CLASS_NAME, "btn_inventory")
+        add_to_cart_button.click()
         sleep(5)
 
 
