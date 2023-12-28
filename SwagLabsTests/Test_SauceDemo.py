@@ -7,6 +7,7 @@ from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as ec
 from selenium.webdriver.common.action_chains import ActionChains
 import random
+import openpyxl
 
 class Test_DemoClass:
     # prefix => test_ (fonk. adının önüne yazmak zorundayız.)
@@ -18,7 +19,21 @@ class Test_DemoClass:
     def tearDown_method(self):
         self.driver.quit()
 
-    @pytest.mark.parametrize("username, password", [("user_user", "secret_sauce"),("locked_out_user", "sssecret_sauce"),("locked_out_user", "secret_sauce")])
+    def getData():
+        excel = openpyxl.load_workbook("Data/invalid_login.xlsx")
+        sheet = excel["Sayfa1"]
+        rows = sheet.max_row       #Kaç satır veri var. Satır sayısı kadar döngüye sokacağız.
+        data = []
+
+        for i in range(2, rows+1):
+            username = sheet.cell(i, 1).value #Önce satır sonra sütunu vererek excel de hangi veriyi alacağını söylüyoruz.
+            password = sheet.cell(i, 2).value
+            data.append((username,password)) #username ve password tek bir data old. için ayrı bir parantez daha ekliyoruz.
+
+        return data
+
+    #@pytest.mark.parametrize("username, password", [("user_user", "secret_sauce"),("locked_out_user", "sssecret_sauce"),("locked_out_user", "secret_sauce")])
+    @pytest.mark.parametrize("username, password", getData())
     def test_invailed_login(self, username, password):
         self.driver.get("https://www.saucedemo.com/")
 
@@ -175,15 +190,10 @@ class Test_DemoClass:
         sleep(5)
         inventory_item_description = selected_product.find_element(By.CLASS_NAME, "inventory_item_description")
         price_bar = inventory_item_description.find_element(By.CLASS_NAME, "pricebar")
-
-<<<<<<< HEAD
         add_to_cart_button = price_bar.find_element(By.CLASS_NAME, "btn_inventory")
         add_to_cart_button.click()
-=======
         addToCartButton = selected_product.find_element(By.CSS_SELECTOR, ".inventory_item_description.pricebar button")
         addToCartButton.click()
->>>>>>> 865bee463a2ef6ee061ffb17f57272f30d1af945
-        sleep(5)
 
 
         

@@ -1,0 +1,29 @@
+Selenium IDE, web tarayıcılarında otomatik test senaryolarını kaydetmek ve yeniden oynatmak için kullanılan bir araçtır. Selenium IDE, test senaryolarını kaydetmek için kullanıcı etkileşimlerini kaydeden bir kayıt mekanizmasına sahiptir ve bu kayıtları daha sonra tekrar oynatmak için kullanılabilir.
+
+Selenium IDE'nin bazı temel komutları şunlardır:
+
+1. Open
+Açıklama: Belirtilen URL'ye tarayıcıyı açar.
+Kullanımı: `open | URL |
+2. Click
+Açıklama: Belirtilen web öğesini tıklar.
+Kullanımı: `click | locator |
+3. Type
+Açıklama: Belirtilen alana metin girer.
+Kullanımı: `type | locator | text |
+4. Assert
+Açıklama: Belirtilen koşulu kontrol eder ve doğrulanmasını bekler.
+Kullanımı: `assert | koşul |
+5. Wait
+Açıklama: Belirtilen süre boyunca bekler.
+Kullanımı: pause | süre |
+6. Verify
+Açıklama: Belirtilen koşulu doğrular, ancak testin devam etmesine izin verir.
+Kullanımı: verify | koşul |
+7. Store
+Açıklama: Değerleri depolamak için kullanılır.
+Kullanımı: store | değer | değişkenAdı |
+8. Echo
+Açıklama: Konsola metin yazdırır.
+Kullanımı: echo | metin |
+Bu komutlar, Selenium IDE'nin temel işlevselliğini oluşturur. Kayıt yaparken, kullanıcı etkileşimleriniz otomatik olarak bu tür komutlara dönüşür ve daha sonra bu komutları düzenleyebilir veya yeniden düzenleyebilirsiniz.
