@@ -176,8 +176,13 @@ class Test_DemoClass:
         inventory_item_description = selected_product.find_element(By.CLASS_NAME, "inventory_item_description")
         price_bar = inventory_item_description.find_element(By.CLASS_NAME, "pricebar")
 
+<<<<<<< HEAD
         add_to_cart_button = price_bar.find_element(By.CLASS_NAME, "btn_inventory")
         add_to_cart_button.click()
+=======
+        addToCartButton = selected_product.find_element(By.CSS_SELECTOR, ".inventory_item_description.pricebar button")
+        addToCartButton.click()
+>>>>>>> 865bee463a2ef6ee061ffb17f57272f30d1af945
         sleep(5)
 
 
